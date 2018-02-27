@@ -40,6 +40,11 @@ public class NewFXMain extends Application {
             root.setCenter( new InscriptionView(root) );
         });
         
+        bConnexion.setOnAction( e -> {
+        
+            root.setCenter( new ConnexionView(root));
+        });
+        
         root.setTop(barreOutils );
         root.setBottom( new Label("Copyright 2018 M2i") );
         
@@ -48,8 +53,10 @@ public class NewFXMain extends Application {
         primaryStage.setTitle("Gaia");
         primaryStage.setScene(scene);
         primaryStage.show();
+       
     }
 
+      
     /**
      * @param args the command line arguments
      */
