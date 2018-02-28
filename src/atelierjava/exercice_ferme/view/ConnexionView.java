@@ -50,10 +50,10 @@ public class ConnexionView extends GridPane {
 
             } catch (Exception exception) {
 
-                Alert alert = new Alert(Alert.AlertType.ERROR);
+                Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Erreur");
                 alert.setHeaderText("Il s'est produit une erreur");
-                alert.setContentText(exception.getMessage());
+                alert.setContentText("Erreur de connexion !");
 
                 alert.showAndWait();
 
