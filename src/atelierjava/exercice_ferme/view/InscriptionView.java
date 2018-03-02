@@ -5,7 +5,11 @@
  */
 package atelierjava.exercice_ferme.view;
 
+import atelierjava.exercice_ferme.exception.PseudoExisteException;
+import atelierjava.exercice_ferme.exception.ValidationException;
 import atelierjava.exercice_ferme.service.JoueurService;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -49,12 +53,19 @@ public class InscriptionView extends GridPane {
                 // Remplace le centre du parent par un texte vide
                 borderPaneDuParent.setCenter(new Label("Inscription réussie"));
                        
-            } catch (Exception exception) {
+            } catch (ValidationException ex) {
                 
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Erreur");
                 alert.setHeaderText("Il s'est produit une erreur");
-                alert.setContentText( exception.getMessage() );
+                alert.setContentText( ex.getMessage() );
+                
+                alert.showAndWait();
+            } catch (PseudoExisteException ex) {
+                 Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Erreur");
+                alert.setHeaderText("Il s'est produit une erreur");
+                alert.setContentText( ex.getMessage() );
                 
                 alert.showAndWait();
             }
